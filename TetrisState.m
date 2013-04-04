@@ -20,21 +20,21 @@
     return self;
 }
 -(void) movePieceLeft{
-    self.current_piece.origin.x--;
+    [self.current_piece movePieceByX:-1 andY:0];
     if ([self.field pieceWillOverlap:self.current_piece]){
-        self.current_piece.origin.x++;
+        [self.current_piece movePieceByX:1 andY:0];
     }
 }
 -(void) movePieceRight{
-    self.current_piece.origin.x++;
+    [self.current_piece movePieceByX:1 andY:0];
     if ([self.field pieceWillOverlap:self.current_piece]){
-        self.current_piece.origin.x--;
+        [self.current_piece movePieceByX:-1 andY:0];
     }
 }
 -(void) movePieceDown{
-    self.current_piece.origin.y++;
+    [self.current_piece movePieceByX:0 andY:1];
     if ([self.field pieceWillOverlap:self.current_piece]){
-        self.current_piece.origin.y--;
+        [self.current_piece movePieceByX:0 andY:-1];
         [self.field backgroundPiece:self.current_piece];
         int cleared = [self.field clearCompletedLines];
         self.score += cleared * cleared;
