@@ -15,8 +15,7 @@
 @property (nonatomic) int width;
 @end
 
-@implementation debrisField {
-}
+@implementation debrisField {}
 -(id) initWithHeight:(int)height andWidth:(int)width{
     self = [super init];
     self.height = height;
@@ -27,16 +26,8 @@
     }
     return self;
 }
--(id) initWithBordersAndHeight:(int)height andWidth:(int)width{
-    self = [self initWithHeight: height+2 andWidth:width+2];
-    for (int i = 0; i<(height+2)*(width+2); i++){
-        if (i < (width+2) || i >= (height+2-1)*(width+2) || (i+1) % (width + 2) == 0 || i % (width+2) == 0 ){
-            self.field[i] = EDGE;
-        }
-    }
-    return self;
-}
 -(void) setSpotX: (int) x andY: (int) y to: (id) value{
+    NSLog(@"%d %d", x, y);
     NSAssert(x < self.width, @"x > width");
     NSAssert(x >= 0, @"x < 0");
     NSAssert(y < self.height, @"y > height");
@@ -56,7 +47,6 @@
     if (x < self.width && x >= 0 && y < self.height && y >= 0) {
         return self.field[x+y*self.width];
     } else {
-        NSLog(@"%@", @"bad range");
         return EDGE;
     }
 }
@@ -75,16 +65,16 @@
 }
 -(int) clearCompletedLines{
     NSArray * filled = [self getCompletedLines];
-    int row_to_move_to = self.height - 2;
-    for (int row_to_process = self.height - 2; row_to_process >= 1; row_to_process--){
+    int row_to_move_to = self.height-1;
+    for (int row_to_process = self.height-1; row_to_process >= 0; row_to_process--){
         if (![filled containsObject: @(row_to_process)]){
-            for (int column = 1; column < self.width-1; column++){
+            for (int column = 0; column < self.width; column++){
                 [self setSpotRow:row_to_move_to andColumn:column to:
                  [self getSpotRow:row_to_process andColumn:column]];
             }
             row_to_move_to--;
         } else {
-            for (int column = 1; column < self.width-1; column++){
+            for (int column = 0; column < self.width; column++){
                 [self setSpotRow:row_to_move_to andColumn:column to:@"-"];
             }
         }
@@ -94,9 +84,9 @@
 -(NSArray *) getCompletedLines{
     // assumes the active piece has already been backgrounded
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    for (int row = 1; row < self.height-1; row++){
+    for (int row = 0; row < self.height; row++){
         [result addObject: [[NSNumber alloc] initWithInt:row]];
-        for (int column = 1; column < self.width-1; column++){
+        for (int column = 0; column < self.width; column++){
             NSString *value = [self getSpotX:column andY:row];
             if ([value isEqualToString: @"-"]){
                 [result removeLastObject];

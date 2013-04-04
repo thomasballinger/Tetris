@@ -18,5 +18,4 @@
 - (NSString *)getTextureAtRow:(int)row AndColumn:(int)col;
 - (void)backgroundPiece:(TetrisPiece*)piece;
 - (id)initWithHeight:(int)height andWidth:(int)width;
-- (id)initWithBordersAndHeight:(int)height andWidth:(int)width;
 @end

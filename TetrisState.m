@@ -12,7 +12,7 @@
 }
 -(id) initWithHeight: (int) height andWidth: (int) width{
     self = [super init];
-    self.field = [[debrisField alloc] initWithBordersAndHeight:height andWidth:width];
+    self.field = [[debrisField alloc] initWithHeight:height andWidth:width];
     self.height = height;
     self.width = width;
     self.score = 0;
@@ -57,8 +57,8 @@
 }
 -(NSArray *) displayArray{ //TODO put all this in debrisField
     NSMutableArray *output = [[NSMutableArray alloc] init];
-    for (int row = 1; row < self.height+1; row++){
-        for (int column = 1; column < self.width+1; column++){
+    for (int row = 0; row < self.height; row++){
+        for (int column = 0; column < self.width; column++){
             [output addObject:[self.field getTextureAtRow:row AndColumn:column]];
             for (Pos* spot in [self.current_piece getTranslatedSpots]){
                 if (spot.row == row && spot.column == column){

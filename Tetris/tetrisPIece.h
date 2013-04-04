@@ -36,7 +36,6 @@
 - (id) initWithX: (int) x andY: (int) y;
 - (NSArray*) getSpotsWithTranslationX: (int) x andY: (int) y;
 - (void) movePieceByX: (int) x andY: (int) y;
-- (void) rotateLeft;
 - (void) rotateRight;
 @end
 
