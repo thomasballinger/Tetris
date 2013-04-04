@@ -35,6 +35,7 @@
 }
 - (id) initWithX:(int)x andY:(int)y{
     self = [super init];
+    self.current_rotation = 0;
     self.origin = [[Pos alloc] initWithX:x andY:y];
     return self;
 }
@@ -58,16 +59,32 @@
     self.origin.x = self.origin.x + x;
     self.origin.y = self.origin.y + y;
 }
+- (NSArray *)spots{
+    return self.rotations[self.current_rotation];
+}
+- (void) rotateRight{
+    self.current_rotation = (self.current_rotation + 1) % self.rotations.count;
+}
+@end
+
+@implementation RotationState
+- (id) initWithPositions: (NSArray *) positions{
+    self = [super init];
+    NSArray *temp = positions;
+    NSLog(@"%@",temp);
+    self.spots = positions;
+    return self;
+}
 @end
 
 @implementation TetronimoO
 - (id) initWithX:(int)x andY:(int)y {
     self = [super initWithX:x andY:y];
-    self.spots = @[
-        [[Pos alloc] initWithX: 0 andY: 0],
-        [[Pos alloc] initWithX: 1 andY: 0],
-        [[Pos alloc] initWithX: 0 andY: 1],
-        [[Pos alloc] initWithX: 1 andY: 1]];
+    self.rotations = @[
+                     @[[[Pos alloc] initWithX: 0 andY: 0],
+                       [[Pos alloc] initWithX: 1 andY: 0],
+                       [[Pos alloc] initWithX: 0 andY: 1],
+                       [[Pos alloc] initWithX: 1 andY: 1]]];
     self.texture = @"O";
     return self;
 }
@@ -75,11 +92,15 @@
 @implementation TetronimoI
 - (id) initWithX:(int)x andY:(int)y {
     self = [super initWithX:x andY:y];
-    self.spots = @[
-        [[Pos alloc] initWithX: 0 andY: 0],
-        [[Pos alloc] initWithX: 0 andY: 1],
-        [[Pos alloc] initWithX: 0 andY: 2],
-        [[Pos alloc] initWithX: 0 andY: 3]];
+    self.rotations = @[
+                     @[[[Pos alloc] initWithX: 1 andY: 0],
+                       [[Pos alloc] initWithX: 1 andY: 1],
+                       [[Pos alloc] initWithX: 1 andY: 2],
+                       [[Pos alloc] initWithX: 1 andY: 3]],
+                     @[[[Pos alloc] initWithX: 0 andY: 2],
+                       [[Pos alloc] initWithX: 1 andY: 2],
+                       [[Pos alloc] initWithX: 2 andY: 2],
+                       [[Pos alloc] initWithX: 3 andY: 2]]];
     self.texture = @"I";
     return self;
 }

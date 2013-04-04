@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Thomas Ballinger. All rights reserved.
 //
 
+#define EDGE @"X"
+
 #import "debrisField.h"
 
 @interface debrisField ()
@@ -29,7 +31,7 @@
     self = [self initWithHeight: height+2 andWidth:width+2];
     for (int i = 0; i<(height+2)*(width+2); i++){
         if (i < (width+2) || i >= (height+2-1)*(width+2) || (i+1) % (width + 2) == 0 || i % (width+2) == 0 ){
-            self.field[i] = @"X";
+            self.field[i] = EDGE;
         }
     }
     return self;
@@ -51,11 +53,12 @@
     [self setSpotX: column andY: row to: value];
 }
 -(NSString *) getSpotX: (int) x andY: (int) y{
-    NSAssert(x < self.width, @"bad range");
-    NSAssert(x >= 0, @"bad range");
-    NSAssert(y < self.height, @"bad range");
-    NSAssert(y >= 0, @"bad range");
-    return self.field[x+y*self.width];
+    if (x < self.width && x >= 0 && y < self.height && y >= 0) {
+        return self.field[x+y*self.width];
+    } else {
+        NSLog(@"%@", @"bad range");
+        return EDGE;
+    }
 }
 -(void) backgroundPiece:(TetrisPiece *)piece{
     for (Pos* p in [piece getTranslatedSpots]){

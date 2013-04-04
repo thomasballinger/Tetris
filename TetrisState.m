@@ -47,13 +47,14 @@
         [self restart];
     }
 }
--(void) rotatePieceLeft{
-    [self.current_piece rotateLeft];
+-(void) rotatePiece{
+    [self.current_piece rotateRight];
     if ([self.field pieceWillOverlap:self.current_piece]){
+        [self.current_piece rotateRight];
+        [self.current_piece rotateRight];
         [self.current_piece rotateRight];
     }
 }
--(void) rotatePieceRight{}
 -(NSArray *) displayArray{ //TODO put all this in debrisField
     NSMutableArray *output = [[NSMutableArray alloc] init];
     for (int row = 1; row < self.height+1; row++){

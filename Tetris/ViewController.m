@@ -34,6 +34,10 @@
     [self.game movePieceRight];
     [self displayFromArray:[self.game displayArray]];
 }
+- (IBAction)rotateLeft:(id)sender {
+    [self.game rotatePiece];
+    [self displayFromArray:[self.game displayArray]];
+}
 
 - (void) viewDidAppear: (BOOL) something
 {

@@ -20,14 +20,24 @@
 - (int) column;
 @end
 
-@interface TetrisPiece : NSObject {}
+@interface RotationState : NSObject{}
+@property (nonatomic, strong) NSArray *onLeft;
+@property (nonatomic, strong) NSArray *onRight;
 @property (nonatomic, strong) NSArray *spots;
+- (id) initWithPositions: (NSArray*) positions;
+@end
+
+@interface TetrisPiece : NSObject {}
 @property (nonatomic, strong) Pos *origin;
 @property (nonatomic, strong) NSString *texture;
+@property (nonatomic) int current_rotation;
+@property (nonatomic, strong) NSArray *rotations;
 - (NSArray*) getTranslatedSpots;
 - (id) initWithX: (int) x andY: (int) y;
 - (NSArray*) getSpotsWithTranslationX: (int) x andY: (int) y;
 - (void) movePieceByX: (int) x andY: (int) y;
+- (void) rotateLeft;
+- (void) rotateRight;
 @end
 
 @interface TetronimoI : TetrisPiece{}

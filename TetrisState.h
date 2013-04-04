@@ -20,8 +20,7 @@
 -(void) movePieceLeft;
 -(void) movePieceRight;
 -(void) movePieceDown;
--(void) rotatePieceLeft;
--(void) rotatePieceRight;
+-(void) rotatePiece;
 -(NSArray*) displayArray;
 -(void) tick;
 -(void) restart;
