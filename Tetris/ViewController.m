@@ -44,6 +44,12 @@
     [self orderBlockDisplay];
     self.game = [[TetrisState alloc] initWithHeight:7 andWidth:6];
     [self displayFromArray:[self.game displayArray]];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+}
+
+- (void) tick
+{
+    [self moveDown:@""];
 }
 
 - (void) orderBlockDisplay
