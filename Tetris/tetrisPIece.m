@@ -5,8 +5,8 @@
 //  Created by Thomas Ballinger on 4/3/13.
 //  Copyright (c) 2013 Thomas Ballinger. All rights reserved.
 //
-
-#import "tetrisPiece.h" 
+#define POS(x, y) [[Pos alloc] initWithX: x andY: y]
+#import "tetrisPiece.h"
 
 @implementation Pos
 - (id) initWithX: (int) x andY: (int) y{
@@ -78,11 +78,7 @@
 @implementation TetronimoO
 - (id) initWithX:(int)x andY:(int)y {
     self = [super initWithX:x andY:y];
-    self.rotations = @[
-                     @[[[Pos alloc] initWithX: 0 andY: 0],
-                       [[Pos alloc] initWithX: 1 andY: 0],
-                       [[Pos alloc] initWithX: 0 andY: 1],
-                       [[Pos alloc] initWithX: 1 andY: 1]]];
+    self.rotations = @[@[POS(0, 0), POS(1, 0), POS(0, 1), POS(1, 1)]];
     self.texture = @"O";
     return self;
 }
@@ -90,15 +86,8 @@
 @implementation TetronimoI
 - (id) initWithX:(int)x andY:(int)y {
     self = [super initWithX:x andY:y];
-    self.rotations = @[
-                     @[[[Pos alloc] initWithX: 1 andY: 0],
-                       [[Pos alloc] initWithX: 1 andY: 1],
-                       [[Pos alloc] initWithX: 1 andY: 2],
-                       [[Pos alloc] initWithX: 1 andY: 3]],
-                     @[[[Pos alloc] initWithX: 0 andY: 2],
-                       [[Pos alloc] initWithX: 1 andY: 2],
-                       [[Pos alloc] initWithX: 2 andY: 2],
-                       [[Pos alloc] initWithX: 3 andY: 2]]];
+    self.rotations = @[@[POS(1, 0), POS(1, 1), POS(1, 2), POS(1, 3)],
+                       @[POS(0, 2), POS(1, 2), POS(2, 2), POS(3, 4)]];
     self.texture = @"I";
     return self;
 }
