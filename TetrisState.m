@@ -16,7 +16,7 @@
     self.height = height;
     self.width = width;
     self.score = 0;
-    self.current_piece = [[TetronimoI alloc] initWithX:3 andY:2];
+    [self newPiece];
     return self;
 }
 -(void) movePieceLeft{
@@ -42,7 +42,9 @@
     }
 }
 -(void) newPiece{
-    self.current_piece = [[TetronimoI alloc] initWithX:3 andY:2];
+    NSArray *types = @[[TetronimoI class], [TetronimoJ class], [TetronimoO class], [TetronimoL class], [TetronimoS class], [TetronimoT class], [TetronimoZ class]];
+    int i = arc4random() % [types count];
+    self.current_piece = [[types[i] alloc] initWithX:2 andY:0];
     if ([self.field pieceWillOverlap:self.current_piece]){
         [self restart];
     }

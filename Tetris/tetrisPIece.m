@@ -87,11 +87,60 @@
 - (id) initWithX:(int)x andY:(int)y {
     self = [super initWithX:x andY:y];
     self.rotations = @[@[POS(1, 0), POS(1, 1), POS(1, 2), POS(1, 3)],
-                       @[POS(0, 2), POS(1, 2), POS(2, 2), POS(3, 4)]];
+                       @[POS(0, 2), POS(1, 2), POS(2, 2), POS(3, 2)]];
     self.texture = @"I";
     return self;
 }
-
-
-
+@end
+@implementation TetronimoJ
+- (id) initWithX:(int)x andY:(int)y {
+    self = [super initWithX:x andY:y];
+    self.rotations = @[@[POS(0, 0), POS(0, 1), POS(1, 1), POS(2, 1)],
+                       @[POS(2, 0), POS(1, 0), POS(1, 1), POS(1, 2)],
+                       @[POS(2, 2), POS(2, 1), POS(1, 1), POS(0, 1)],
+                       @[POS(0, 2), POS(1, 2), POS(1, 1), POS(1, 0)]];
+    self.texture = @"J";
+    return self;
+}
+@end
+@implementation TetronimoL
+- (id) initWithX:(int)x andY:(int)y {
+    self = [super initWithX:x andY:y];
+    self.rotations = @[@[POS(0, 2), POS(0, 1), POS(1, 1), POS(2, 1)],
+                       @[POS(0, 0), POS(1, 0), POS(1, 1), POS(1, 2)],
+                       @[POS(2, 0), POS(2, 1), POS(1, 1), POS(0, 1)],
+                       @[POS(2, 2), POS(1, 2), POS(1, 1), POS(1, 0)]];
+    self.texture = @"L";
+    return self;
+}
+@end
+@implementation TetronimoS
+- (id) initWithX:(int)x andY:(int)y {
+    self = [super initWithX:x andY:y];
+    self.rotations = @[@[POS(0, 2), POS(1, 2), POS(1, 1), POS(2, 1)],
+                       @[POS(2, 2), POS(1, 1), POS(2, 1), POS(1, 0)]];
+    self.texture = @"S";
+    return self;
+}
+@end
+@implementation TetronimoZ
+- (id) initWithX:(int)x andY:(int)y {
+    self = [super initWithX:x andY:y];
+    self.rotations = @[@[POS(1, 2), POS(1, 1), POS(2, 1), POS(2, 0)],
+                       @[POS(0, 1), POS(1, 1), POS(1, 2), POS(2, 2)]];
+    
+    self.texture = @"Z";
+    return self;
+}
+@end
+@implementation TetronimoT
+- (id) initWithX:(int)x andY:(int)y {
+    self = [super initWithX:x andY:y];
+    self.rotations = @[@[POS(0, 1), POS(1, 1), POS(1, 2), POS(2, 1)],
+                       @[POS(1, 2), POS(1, 1), POS(2, 1), POS(1, 0)],
+                       @[POS(0, 1), POS(1, 1), POS(1, 0), POS(2, 1)],
+                       @[POS(1, 0), POS(1, 1), POS(0, 1), POS(1, 2)]];
+    self.texture = @"T";
+    return self;
+}
 @end
