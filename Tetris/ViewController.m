@@ -41,7 +41,6 @@
 
 - (void) viewDidAppear: (BOOL) something
 {
-    [super viewDidLoad];
     [self orderBlockDisplay];
     self.game = [[TetrisState alloc] initWithHeight:7 andWidth:6];
     [self displayFromArray:[self.game displayArray]];
@@ -60,7 +59,6 @@
             }
         return label1.frame.origin.y > label2.frame.origin.y ? NSOrderedDescending : NSOrderedAscending;
     }];
-    //NSLog(@"%@", self.blockDisplay);
     int i = 1;
     for (UILabel* label in self.blockDisplay){
         label.text = [NSString stringWithFormat:@"%d", i];

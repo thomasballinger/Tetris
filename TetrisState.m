@@ -37,7 +37,7 @@
         [self.current_piece movePieceByX:0 andY:-1];
         [self.field backgroundPiece:self.current_piece];
         int cleared = [self.field clearCompletedLines];
-        self.score += cleared * cleared;
+        self.score = self.score + cleared * cleared;
         [self newPiece];
     }
 }
@@ -55,7 +55,7 @@
         [self.current_piece rotateRight];
     }
 }
--(NSArray *) displayArray{ //TODO put all this in debrisField
+-(NSArray *) displayArray{
     NSMutableArray *output = [[NSMutableArray alloc] init];
     for (int row = 0; row < self.height; row++){
         for (int column = 0; column < self.width; column++){

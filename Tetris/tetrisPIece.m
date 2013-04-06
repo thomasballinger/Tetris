@@ -70,8 +70,6 @@
 @implementation RotationState
 - (id) initWithPositions: (NSArray *) positions{
     self = [super init];
-    NSArray *temp = positions;
-    NSLog(@"%@",temp);
     self.spots = positions;
     return self;
 }

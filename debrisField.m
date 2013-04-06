@@ -27,7 +27,6 @@
     return self;
 }
 -(void) setSpotX: (int) x andY: (int) y to: (id) value{
-    NSLog(@"%d %d", x, y);
     NSAssert(x < self.width, @"x > width");
     NSAssert(x >= 0, @"x < 0");
     NSAssert(y < self.height, @"y > height");
@@ -67,16 +66,16 @@
     NSArray * filled = [self getCompletedLines];
     int row_to_move_to = self.height-1;
     for (int row_to_process = self.height-1; row_to_process >= 0; row_to_process--){
-        if (![filled containsObject: @(row_to_process)]){
+        if ([filled containsObject: @(row_to_process)]){
+            for (int column = 0; column < self.width; column++){
+                [self setSpotRow:row_to_process andColumn:column to:@"-"];
+            }
+        } else {
             for (int column = 0; column < self.width; column++){
                 [self setSpotRow:row_to_move_to andColumn:column to:
                  [self getSpotRow:row_to_process andColumn:column]];
             }
             row_to_move_to--;
-        } else {
-            for (int column = 0; column < self.width; column++){
-                [self setSpotRow:row_to_move_to andColumn:column to:@"-"];
-            }
         }
     }
     return [filled count];
