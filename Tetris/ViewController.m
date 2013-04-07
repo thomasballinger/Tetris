@@ -12,13 +12,22 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *blockDisplay;
 @property (strong, nonatomic) TetrisState *game;
 @property (nonatomic) int score;
+@property (nonatomic) int highScore;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *highScoreLabel;
 @end
 
 @implementation ViewController
 - (void) setScore:(int)score{
-    self.scoreLabel.text = [NSString stringWithFormat: @"%d", self.score];
+    self.scoreLabel.text = [NSString stringWithFormat: @"score: %d", self.score];
     _score = score;
+    if (score > self.highScore){
+        self.highScore = score;
+    }
+}
+- (void) setHighScore:(int)highScore{
+    _highScore = highScore;
+    self.highScoreLabel.text = [NSString stringWithFormat: @"high: %d", self.highScore];
 }
 - (IBAction)moveLeft:(id)sender{
     [self.game movePieceLeft];
@@ -45,6 +54,7 @@
     self.game = [[TetrisState alloc] initWithHeight:7 andWidth:6];
     [self displayFromArray:[self.game displayArray]];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    self.highScore = 0;
 }
 
 - (void) tick
