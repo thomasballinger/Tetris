@@ -278,10 +278,14 @@
 		6229A42D170BBE4000793E7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tetris/Tetris-Prefix.pch";
 				INFOPLIST_FILE = "Tetris/Tetris-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -289,10 +293,16 @@
 		6229A42E170BBE4000793E7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thomas Ballinger (R4M9TB35UG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Thomas Ballinger (R4M9TB35UG)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tetris/Tetris-Prefix.pch";
 				INFOPLIST_FILE = "Tetris/Tetris-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5B2E59ED-46E6-472A-8912-BCB2666B5258";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5B2E59ED-46E6-472A-8912-BCB2666B5258";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
