@@ -25,4 +25,4 @@ def reset():
     scores = set()
 
 if __name__ == "__main__":
-    app.run(port=12345, host='', debug=True)
+    app.run(port=12345, host='', debug=False)
