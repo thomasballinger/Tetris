@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		620C6DBF171650E700195A4F /* ScoreStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 620C6DBE171650E700195A4F /* ScoreStore.m */; };
 		6229A40D170BBE4000793E7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6229A40C170BBE4000793E7C /* UIKit.framework */; };
 		6229A40F170BBE4000793E7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6229A40E170BBE4000793E7C /* Foundation.framework */; };
 		6229A411170BBE4000793E7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6229A410170BBE4000793E7C /* CoreGraphics.framework */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		620C6DBD171650E700195A4F /* ScoreStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStore.h; sourceTree = "<group>"; };
+		620C6DBE171650E700195A4F /* ScoreStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStore.m; sourceTree = "<group>"; };
 		6229A409170BBE4000793E7C /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6229A40C170BBE4000793E7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6229A40E170BBE4000793E7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +100,8 @@
 				6229A42F170C4BD300793E7C /* debrisField.h */,
 				6229A430170C4BD300793E7C /* debrisField.m */,
 				6229A424170BBE4000793E7C /* MainStoryboard.storyboard */,
+				620C6DBD171650E700195A4F /* ScoreStore.h */,
+				620C6DBE171650E700195A4F /* ScoreStore.m */,
 				6229A427170BBE4000793E7C /* ViewController.h */,
 				6229A428170BBE4000793E7C /* ViewController.m */,
 				6229A413170BBE4000793E7C /* Supporting Files */,
@@ -194,6 +199,7 @@
 				6229A431170C4BD300793E7C /* debrisField.m in Sources */,
 				6229A434170C4D6F00793E7C /* tetrisPIece.m in Sources */,
 				62E21175170CB0AD008C0E11 /* TetrisState.m in Sources */,
+				620C6DBF171650E700195A4F /* ScoreStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

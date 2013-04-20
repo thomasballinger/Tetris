@@ -8,11 +8,13 @@ scores = []
 def score_sort(score):
     return score.get('score', -1)
 
-@app.route("/", methods=["GET", "POST"])
+
+{'score': 123,
+ 'name' : 'tom'}
+
+@app.route("/scores", methods=["GET", "POST"])
 def hello():
     if request.method == 'POST':
-        print repr(request.data)
-        print repr(request.form.keys()[0])
         scores.append(json.loads(request.data or request.form.keys()[0]))
         scores.sort(key=score_sort)
         return 'OK\n'
