@@ -29,6 +29,10 @@
     _highScore = highScore;
     self.highScoreLabel.text = [NSString stringWithFormat: @"high: %d", self.highScore];
 }
+- (IBAction)swipe:(id)sender {
+    NSLog(@"%@", sender);
+    
+}
 - (IBAction)moveLeft:(id)sender{
     [self.game movePieceLeft];
     [self displayFromArray:[self.game displayArray]];
@@ -89,6 +93,17 @@
     }
     self.score = self.game.score;
 }
+- (void) viewDidLoad{
+    [super viewDidLoad];
+    [self addGestureRecognizers];
+}
+- (void) addGestureRecognizers{
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveLeft:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [[self view] addGestureRecognizer:swipeLeft];
 
-
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveRight:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [[self view] addGestureRecognizer:swipeRight];
+}
 @end
