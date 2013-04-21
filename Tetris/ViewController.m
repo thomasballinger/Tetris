@@ -11,6 +11,7 @@
 @interface ViewController ()
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *blockDisplay;
 @property (strong, nonatomic) TetrisState *game;
+@property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) int score;
 @property (nonatomic) int highScore;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -39,9 +40,11 @@
     self.score = self.game.score;
 }
 - (IBAction)moveDown:(id)sender {
+    [self.timer invalidate];
     [self.game movePieceDown];
     [self displayFromArray:[self.game displayArray]];
     self.score = self.game.score;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:NO];
 }
 - (IBAction)moveRight:(id)sender {
     [self.game movePieceRight];
@@ -57,7 +60,7 @@
     [self orderBlockDisplay];
     self.game = [[TetrisState alloc] initWithHeight:10 andWidth:8];
     [self displayFromArray:[self.game displayArray]];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:NO];
     self.highScore = 0;
 }
 
