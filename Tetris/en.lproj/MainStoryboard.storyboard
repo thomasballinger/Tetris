@@ -532,6 +532,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ZPm-9B-BFq" firstAttribute="leading" secondItem="5X7-R2-zsB" secondAttribute="leading" type="default" id="0Cf-QC-lDz"/>
                             <constraint firstItem="iVo-kY-EpU" firstAttribute="baseline" secondItem="9ui-xx-EJH" secondAttribute="baseline" type="default" id="0Ol-ag-fsO"/>
@@ -851,6 +852,9 @@
                             <constraint firstItem="jcx-Gy-xrx" firstAttribute="leading" secondItem="fgd-Je-43L" secondAttribute="leading" type="default" id="zqi-D1-rnd"/>
                             <constraint firstItem="mLM-Ln-Ifc" firstAttribute="leading" secondItem="nil-DZ-QvG" secondAttribute="leading" type="default" id="zyY-xt-G8x"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ny8-Tc-fDI" appends="YES" id="d0A-9U-7gp"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="highScoreLabel" destination="g7P-2l-leR" id="s30-IP-tDX"/>
@@ -938,6 +942,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ny8-Tc-fDI">
+                    <connections>
+                        <action selector="rotateLeft:" destination="2" id="dfa-wO-kAq"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
@@ -952,6 +961,7 @@
                 <relationship kind="action" name="moveLeft:"/>
                 <relationship kind="action" name="moveRight:"/>
                 <relationship kind="action" name="rotateLeft:"/>
+                <relationship kind="action" name="swipe:"/>
                 <relationship kind="outlet" name="highScoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="blockDisplay" candidateClass="UILabel"/>
