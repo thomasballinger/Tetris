@@ -105,5 +105,9 @@
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveRight:)];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [[self view] addGestureRecognizer:swipeRight];
+    
+    UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveDown:)];
+    [swipeDown setDirection:UISwipeGestureRecognizerDirectionDown];
+    [[self view] addGestureRecognizer:swipeDown];
 }
 @end
