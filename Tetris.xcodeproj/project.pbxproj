@@ -23,6 +23,7 @@
 		6229A434170C4D6F00793E7C /* tetrisPIece.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229A433170C4D6F00793E7C /* tetrisPIece.m */; };
 		627A608C1724D8C800037A06 /* TetrisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A608B1724D8C800037A06 /* TetrisView.m */; };
 		627A608F1724EA4600037A06 /* TetrisAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A608E1724EA4600037A06 /* TetrisAI.m */; };
+		627A609217250D1500037A06 /* debrisField+metrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A609117250D1500037A06 /* debrisField+metrics.m */; };
 		62E21175170CB0AD008C0E11 /* TetrisState.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E21174170CB0AD008C0E11 /* TetrisState.m */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,8 @@
 		627A608B1724D8C800037A06 /* TetrisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TetrisView.m; sourceTree = "<group>"; };
 		627A608D1724EA4600037A06 /* TetrisAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrisAI.h; sourceTree = "<group>"; };
 		627A608E1724EA4600037A06 /* TetrisAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TetrisAI.m; sourceTree = "<group>"; };
+		627A609017250D1500037A06 /* debrisField+metrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "debrisField+metrics.h"; path = "../debrisField+metrics.h"; sourceTree = "<group>"; };
+		627A609117250D1500037A06 /* debrisField+metrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "debrisField+metrics.m"; path = "../debrisField+metrics.m"; sourceTree = "<group>"; };
 		62E21173170CB0AD008C0E11 /* TetrisState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrisState.h; sourceTree = SOURCE_ROOT; };
 		62E21174170CB0AD008C0E11 /* TetrisState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TetrisState.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -101,6 +104,8 @@
 		6229A412170BBE4000793E7C /* Tetris */ = {
 			isa = PBXGroup;
 			children = (
+				627A609017250D1500037A06 /* debrisField+metrics.h */,
+				627A609117250D1500037A06 /* debrisField+metrics.m */,
 				62E21173170CB0AD008C0E11 /* TetrisState.h */,
 				62E21174170CB0AD008C0E11 /* TetrisState.m */,
 				627A608D1724EA4600037A06 /* TetrisAI.h */,
@@ -212,6 +217,7 @@
 				620C6DBF171650E700195A4F /* ScoreStore.m in Sources */,
 				627A608C1724D8C800037A06 /* TetrisView.m in Sources */,
 				627A608F1724EA4600037A06 /* TetrisAI.m in Sources */,
+				627A609217250D1500037A06 /* debrisField+metrics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

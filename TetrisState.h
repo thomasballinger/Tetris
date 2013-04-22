@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "debrisField.h"
 #import "tetrisPIece.h"
+#import "debrisField+metrics.h"
 
 @interface TetrisState : NSObject {}
 @property (nonatomic, strong) debrisField *field;

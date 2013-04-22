@@ -19,7 +19,7 @@
     self.height = height;
     self.width = width;
     self.field = [[NSMutableArray alloc] init];
-    for (int i = 0; i<height*width; i++){
+    for (int i = 0; i < height * width; i++){
         [self.field addObject: EMPTY];
     }
     return self;

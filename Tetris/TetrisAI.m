@@ -19,9 +19,9 @@
             for (int r = 0; r < [state.current_piece.rotations count]; r++){
                 piece.current_rotation = r;
                 debrisField *field = state.field;
-                NSLog(@"trying pos %d, %d, rotation %d", x, y, r);
+                //NSLog(@"trying pos %d, %d, rotation %d", x, y, r);
                 if ([field pieceWillOverlap:piece]){
-                    NSLog(@"invalidPiecePosition");
+                    //NSLog(@"invalidPiecePosition");
                     continue;
                 }
                 [piece movePieceByX:0 andY:1];
@@ -41,11 +41,12 @@
                     field = [origField copy];
                     [origField unbackgroundPiece:piece];
                     [field clearCompletedLines];
-                } else {
-                    [field unbackgroundPiece:piece];
                 }
                 
                 NSLog(@"Worth evaluating field!");
+                NSLog(@"trying pos %d, %d, rotation %d", x, y, r);
+                NSLog(@"total blocks: %d", [field totalBlocks]);
+                [field unbackgroundPiece:piece];
                 
             }
         }
