@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "tetrisPiece.h"
 
+#define EDGE @"X"
+#define EMPTY @"-"
+
 @interface debrisField : NSObject <NSCopying>{
 }
 @property (nonatomic, strong) NSMutableArray *field;

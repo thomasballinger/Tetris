@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TetrisState.h"
 
 @interface TetrisView : UIView
 - (void) displayArray: (NSArray *) values;

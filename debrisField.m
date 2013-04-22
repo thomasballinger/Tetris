@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Thomas Ballinger. All rights reserved.
 //
 
-#define EDGE @"X"
-
 #import "debrisField.h"
 
 @interface debrisField ()
@@ -22,7 +20,7 @@
     self.width = width;
     self.field = [[NSMutableArray alloc] init];
     for (int i = 0; i<height*width; i++){
-        [self.field addObject: @"-"];
+        [self.field addObject: EMPTY];
     }
     return self;
 }
@@ -61,12 +59,12 @@
 }
 -(void) unbackgroundPiece:(TetrisPiece *)piece{
     for (Pos* p in [piece getTranslatedSpots]){
-        [self setSpotX:p.x andY:p.y to:@"-"];
+        [self setSpotX:p.x andY:p.y to:EMPTY];
     }
 }
 -(BOOL) pieceWillOverlap:(TetrisPiece *)piece{
     for (Pos* p in [piece getTranslatedSpots]){
-        if (![@"-" isEqualToString: [self getSpotX:p.x andY:p.y]]){
+        if (![EMPTY isEqualToString: [self getSpotX:p.x andY:p.y]]){
             return YES;
         }
     }
@@ -78,7 +76,7 @@
     for (int row_to_process = self.height-1; row_to_process >= 0; row_to_process--){
         if ([filled containsObject: @(row_to_process)]){
             for (int column = 0; column < self.width; column++){
-                [self setSpotRow:row_to_process andColumn:column to:@"-"];
+                [self setSpotRow:row_to_process andColumn:column to:EMPTY];
             }
         } else {
             for (int column = 0; column < self.width; column++){
@@ -97,7 +95,7 @@
         [result addObject: [[NSNumber alloc] initWithInt:row]];
         for (int column = 0; column < self.width; column++){
             NSString *value = [self getSpotX:column andY:row];
-            if ([value isEqualToString: @"-"]){
+            if ([value isEqualToString: EMPTY]){
                 [result removeLastObject];
                 break;
             }

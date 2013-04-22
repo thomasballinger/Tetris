@@ -50,7 +50,7 @@
                            @"S": [UIColor cyanColor],
                            @"Z": [UIColor yellowColor],
                            @"T": [UIColor orangeColor],
-                           @"-": [UIColor whiteColor],
+                           EMPTY: [UIColor whiteColor],
                            };
     }
     return self;
