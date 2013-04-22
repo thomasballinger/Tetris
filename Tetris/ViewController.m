@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *blockDisplay;
 @property (strong, nonatomic) TetrisState *game;
 @property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) TetrisView *tetrisView;
 @property (nonatomic) int score;
 @property (nonatomic) int highScore;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -57,7 +58,6 @@
 
 - (void) viewDidAppear: (BOOL) something
 {
-    [self orderBlockDisplay];
     self.game = [[TetrisState alloc] initWithHeight:10 andWidth:8];
     [self displayFromArray:[self.game displayArray]];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:NO];
@@ -69,36 +69,15 @@
     [self moveDown:@""];
 }
 
-- (void) orderBlockDisplay
-{
-    self.blockDisplay = [self.blockDisplay sortedArrayUsingComparator: ^NSComparisonResult(id a, id b) {
-        UILabel *label1 = ( UILabel* ) a;
-        UILabel *label2 = ( UILabel* ) b;
-        if (label1.frame.origin.y == label2.frame.origin.y){
-            if (label1.frame.origin.x == label1.frame.origin.y){
-                return NSOrderedSame;
-            }
-            return label1.frame.origin.x > label2.frame.origin.x ? NSOrderedDescending : NSOrderedAscending;
-            }
-        return label1.frame.origin.y > label2.frame.origin.y ? NSOrderedDescending : NSOrderedAscending;
-    }];
-    int i = 1;
-    for (UILabel* label in self.blockDisplay){
-        label.text = [NSString stringWithFormat:@"%d", i];
-        i++;
-    }
-}
 - (void) displayFromArray: (NSArray*) array
 {
-    for (int i = 0; i < [array count]; i++){
-        UILabel *l = (UILabel*) self.blockDisplay[i];
-        l.text = array[i];
-    }
+    [self.tetrisView displayArray:array];
     self.score = self.game.score;
 }
 - (void) viewDidLoad{
     [super viewDidLoad];
     [self addGestureRecognizers];
+    [self addPrettyTetrisView];
 }
 - (void) addGestureRecognizers{
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveLeft:)];
@@ -112,5 +91,9 @@
     UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveDown:)];
     [swipeDown setDirection:UISwipeGestureRecognizerDirectionDown];
     [[self view] addGestureRecognizer:swipeDown];
+}
+- (void) addPrettyTetrisView{
+    self.tetrisView = [[TetrisView alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 400.0f) andBoardRows:10 andColumns:8];
+    [self.view addSubview: self.tetrisView];
 }
 @end
