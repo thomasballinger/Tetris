@@ -39,6 +39,11 @@
     self.origin = [[Pos alloc] initWithX:x andY:y];
     return self;
 }
+- (id) copyWithZone:(NSZone *)zone{
+    TetrisPiece *another = [[[self class] alloc] initWithX:self.origin.x andY:self.origin.y];
+    another.current_rotation = self.current_rotation; // int, so it's ok to use assignment
+    return another;
+}
 - (NSArray*) getTranslatedSpots{
     NSMutableArray *a = [[NSMutableArray alloc] init];
     for (Pos *spot in self.spots){
@@ -64,14 +69,6 @@
 }
 - (void) rotateRight{
     self.current_rotation = (self.current_rotation + 1) % self.rotations.count;
-}
-@end
-
-@implementation RotationState
-- (id) initWithPositions: (NSArray *) positions{
-    self = [super init];
-    self.spots = positions;
-    return self;
 }
 @end
 

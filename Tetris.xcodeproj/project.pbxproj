@@ -22,6 +22,7 @@
 		6229A431170C4BD300793E7C /* debrisField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229A430170C4BD300793E7C /* debrisField.m */; };
 		6229A434170C4D6F00793E7C /* tetrisPIece.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229A433170C4D6F00793E7C /* tetrisPIece.m */; };
 		627A608C1724D8C800037A06 /* TetrisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A608B1724D8C800037A06 /* TetrisView.m */; };
+		627A608F1724EA4600037A06 /* TetrisAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A608E1724EA4600037A06 /* TetrisAI.m */; };
 		62E21175170CB0AD008C0E11 /* TetrisState.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E21174170CB0AD008C0E11 /* TetrisState.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		6229A433170C4D6F00793E7C /* tetrisPIece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tetrisPIece.m; sourceTree = "<group>"; };
 		627A608A1724D8C800037A06 /* TetrisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrisView.h; sourceTree = "<group>"; };
 		627A608B1724D8C800037A06 /* TetrisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TetrisView.m; sourceTree = "<group>"; };
+		627A608D1724EA4600037A06 /* TetrisAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrisAI.h; sourceTree = "<group>"; };
+		627A608E1724EA4600037A06 /* TetrisAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TetrisAI.m; sourceTree = "<group>"; };
 		62E21173170CB0AD008C0E11 /* TetrisState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TetrisState.h; sourceTree = SOURCE_ROOT; };
 		62E21174170CB0AD008C0E11 /* TetrisState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TetrisState.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -100,6 +103,8 @@
 			children = (
 				62E21173170CB0AD008C0E11 /* TetrisState.h */,
 				62E21174170CB0AD008C0E11 /* TetrisState.m */,
+				627A608D1724EA4600037A06 /* TetrisAI.h */,
+				627A608E1724EA4600037A06 /* TetrisAI.m */,
 				6229A42F170C4BD300793E7C /* debrisField.h */,
 				6229A430170C4BD300793E7C /* debrisField.m */,
 				6229A424170BBE4000793E7C /* MainStoryboard.storyboard */,
@@ -206,6 +211,7 @@
 				62E21175170CB0AD008C0E11 /* TetrisState.m in Sources */,
 				620C6DBF171650E700195A4F /* ScoreStore.m in Sources */,
 				627A608C1724D8C800037A06 /* TetrisView.m in Sources */,
+				627A608F1724EA4600037A06 /* TetrisAI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

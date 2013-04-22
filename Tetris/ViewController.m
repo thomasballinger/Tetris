@@ -46,6 +46,7 @@
     [self displayFromArray:[self.game displayArray]];
     self.score = self.game.score;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(tick) userInfo:nil repeats:NO];
+    [[[TetrisAI alloc] init] getAllPiecePlacements:self.game];
 }
 - (IBAction)moveRight:(id)sender {
     [self.game movePieceRight];
@@ -78,6 +79,7 @@
     [super viewDidLoad];
     [self addGestureRecognizers];
     [self addPrettyTetrisView];
+    self.view.backgroundColor = [UIColor lightGrayColor];
 }
 - (void) addGestureRecognizers{
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveLeft:)];
@@ -93,7 +95,13 @@
     [[self view] addGestureRecognizer:swipeDown];
 }
 - (void) addPrettyTetrisView{
-    self.tetrisView = [[TetrisView alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 400.0f) andBoardRows:10 andColumns:8];
+    int rows = 10;
+    int columns = 8;
+    float height = 350;
+    float width = height * (float) columns / (float) rows;
+    float padding = (self.view.frame.size.width - width) / 2.0f;
+    
+    self.tetrisView = [[TetrisView alloc] initWithFrame:CGRectMake(padding, 10.0f, width, 350.0f) andBoardRows:10 andColumns:8];
     [self.view addSubview: self.tetrisView];
 }
 @end

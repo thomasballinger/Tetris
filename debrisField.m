@@ -26,6 +26,11 @@
     }
     return self;
 }
+-(id) copyWithZone:(NSZone *)zone{
+    debrisField *other = [[[self class] alloc] initWithHeight:self.height andWidth:self.width];
+    other.field = [self.field copy];
+    return other;
+}
 -(void) setSpotX: (int) x andY: (int) y to: (id) value{
     NSAssert(x < self.width, @"x > width");
     NSAssert(x >= 0, @"x < 0");
@@ -52,6 +57,11 @@
 -(void) backgroundPiece:(TetrisPiece *)piece{
     for (Pos* p in [piece getTranslatedSpots]){
         [self setSpotX:p.x andY:p.y to:piece.texture];
+    }
+}
+-(void) unbackgroundPiece:(TetrisPiece *)piece{
+    for (Pos* p in [piece getTranslatedSpots]){
+        [self setSpotX:p.x andY:p.y to:@"-"];
     }
 }
 -(BOOL) pieceWillOverlap:(TetrisPiece *)piece{

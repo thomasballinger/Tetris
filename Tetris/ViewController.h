@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TetrisState.h"
 #import "TetrisView.h"
+#import "TetrisAI.h"
 
 @interface ViewController : UIViewController
 @end

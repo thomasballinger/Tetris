@@ -11,7 +11,7 @@
 // slower than a struct, but I'm practicing obj-c classes
 // and there's no way the speed should matter
 
-@interface Pos : NSObject {
+@interface Pos : NSObject{
 }
 @property (nonatomic) int x;
 @property (nonatomic) int y;
@@ -20,14 +20,7 @@
 - (int) column;
 @end
 
-@interface RotationState : NSObject{}
-@property (nonatomic, strong) NSArray *onLeft;
-@property (nonatomic, strong) NSArray *onRight;
-@property (nonatomic, strong) NSArray *spots;
-- (id) initWithPositions: (NSArray*) positions;
-@end
-
-@interface TetrisPiece : NSObject {}
+@interface TetrisPiece : NSObject <NSCopying>{}
 @property (nonatomic, strong) Pos *origin;
 @property (nonatomic, strong) NSString *texture;
 @property (nonatomic) int current_rotation;
